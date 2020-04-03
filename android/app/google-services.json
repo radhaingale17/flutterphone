@@ -1,0 +1,77 @@
+{
+  "project_info": {
+    "project_number": "81081890327",
+    "firebase_url": "https://firsty-17224.firebaseio.com",
+    "project_id": "firsty-17224",
+    "storage_bucket": "firsty-17224.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:81081890327:android:2feeefdc6defed1995ce52",
+        "android_client_info": {
+          "package_name": "com.example.firsty"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "81081890327-tltn0dm8co3n6canov5unmktivikstcs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDDioZYIAMNQ6kCD52waB1xg2hv_xDzBVM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "81081890327-tltn0dm8co3n6canov5unmktivikstcs.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:81081890327:android:8647b488b961133295ce52",
+        "android_client_info": {
+          "package_name": "com.example.phoneflutter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "81081890327-7ut68h5um6dmnj24lhvg5lmnfg38mpe1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.phoneflutter",
+            "certificate_hash": "01f621b24bcf0f7b38df661f049f8d1863927a4c"
+          }
+        },
+        {
+          "client_id": "81081890327-tltn0dm8co3n6canov5unmktivikstcs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDDioZYIAMNQ6kCD52waB1xg2hv_xDzBVM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "81081890327-tltn0dm8co3n6canov5unmktivikstcs.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
