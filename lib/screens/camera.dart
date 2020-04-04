@@ -6,8 +6,6 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:phoneflutter/screens/dashboard.dart';
 import 'package:video_player/video_player.dart';
 
-
-
 File _cameraVideo;
 
 VideoPlayerController _cameraVideoPlayerController;
@@ -65,9 +63,11 @@ class _MyvideoPageState extends State<MyvideoPage> {
   // function for uploading video
 
    Widget enableUpload() {
+ 
     return Container(
       child: Column(
         children: <Widget>[
+          
           if (_cameraVideo != null)
             _cameraVideoPlayerController.value.initialized
                 ? AspectRatio(
@@ -88,12 +88,19 @@ class _MyvideoPageState extends State<MyvideoPage> {
             textColor: Colors.white,
             color: Colors.green,
             onPressed: () {
-              showAlertDialog(context);
+              
+               if (_cameraVideoPlayerController.value.isPlaying) {
+        _cameraVideoPlayerController.pause();
+        showAlertDialog(context);
+      } 
+      
+      
             },
           )
         ],
       ),
     );
+   
   }
 }
 
@@ -102,6 +109,7 @@ TextEditingController _textFieldController = TextEditingController();
 // function of dialog box
 
 showAlertDialog(BuildContext context) {
+
   // Create AlertDialog
   AlertDialog alert = AlertDialog(
     title: Text('Add Massage'),
@@ -114,28 +122,31 @@ showAlertDialog(BuildContext context) {
       new FlatButton(
         child: new Text('Add'),
         onPressed: () {
-          navigateToSubPage(context);
-        //  Navigator.pop(context);
-
- },
+          SubPage();
+         Navigator.push(context, MaterialPageRoute(builder: (context) => SubPage())).then((result){
+           Navigator.of(context).pop();
+         });
+         },
       )
     ],
   );
 
   // show the dialog
-  showDialog(
+  
+    showDialog(
     context: context,
     builder: (BuildContext context) {
       return alert;
     },
   );
+
 }
 
 // class of another page
 
-Future navigateToSubPage(context) async {
-  Navigator.push(context, MaterialPageRoute(builder: (context) => SubPage()));
-}
+// Future navigateToSubPage(context) async {
+//   Navigator.push(context, MaterialPageRoute(builder: (context) => SubPage()));
+// }
 
 class SubPage extends StatelessWidget {
   @override
@@ -150,18 +161,34 @@ class SubPage extends StatelessWidget {
         child: new Center(
           child: new Column(
             children: <Widget>[
+            
               new Container(
-                height: 500,
+                height: 400,
                 child: new Column(
                   children: <Widget>[
                     AspectRatio(
                       aspectRatio:
-                          _cameraVideoPlayerController.value.aspectRatio,
+                          100/80,
                       child: VideoPlayer(_cameraVideoPlayerController),
                     )
                   ],
                 ),
               ),
+              RaisedButton(
+          child:Text('Play'),
+          color: Colors.green,
+          onPressed: () {
+
+      // If the video is playing, pause it.
+      if (_cameraVideoPlayerController.value.isPlaying) {
+       _cameraVideoPlayerController.pause();
+      } else {
+        // If the video is paused, play it.
+        _cameraVideoPlayerController.play();
+      }
+    
+          },
+        ),
               Spacer(),
               new Card(
                 child: new Container(
@@ -184,6 +211,8 @@ class SubPage extends StatelessWidget {
                 textColor: Colors.white,
                 color: Colors.green,
                 onPressed: () {
+                   if (_cameraVideoPlayerController.value.isPlaying) {
+       _cameraVideoPlayerController.pause();}
                   final StorageReference firebaseStorageRef =
                       FirebaseStorage.instance.ref().child('myimage.mp3');
                   final StorageUploadTask task =
